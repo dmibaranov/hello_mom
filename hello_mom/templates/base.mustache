@@ -1,0 +1,55 @@
+<html>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <style type="text/css">
+    body{
+      text-align: center;
+      font-family: sans-serif;
+      color: #333333;
+    }
+    .issue{
+      display: inline-block;
+      width: 1050px;
+    }
+    .issue p{
+      padding-top: 1em;
+      width:auto;
+    }
+    .issue img.photo{
+      border:2px solid white;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -moz-box-shadow: 2px 2px 3px 3px #ccc;
+      -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+      box-shadow: 2px 2px 3px 3px #ccc;
+      margin: 1em 0 0.5em 0;
+    }
+    </style>
+    <script type="text/javascript">
+      function switch_edit_mode(e){
+        if(e.keyCode){
+          code = e.keyCode;
+        }else if (e.which){
+          code = e.which;
+        }
+        if(e.ctrlKey && code===69){// Ctrl+e
+          var dm = document.designMode.toLowerCase();
+          document.designMode = (dm==='on')?'off':'on';
+        }
+      }
+      document.addEventListener('keydown', switch_edit_mode);
+    </script>
+  <body>
+    <h1>Title</h1>
+    <h4>Description</h4>
+    {{#images}}
+    <span class="issue">
+      <p class="description">
+      ...
+      </p>
+      <img class="photo" src="{{rel_path}}"><br>
+      <small>{{rel_path}}</small>
+    </span>
+    {{/images}}
+  </body>
+</html>
